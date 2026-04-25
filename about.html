@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Story — Tsar Linen</title>
+<meta name="description" content="Tsar Linen bridges generations of Indian textile craftsmanship with American buyers. Learn about our manufacturing partners, our values, and our team." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 100px 5%;
+  }
+
+  .story-section.dark { background: var(--ink); color: var(--paper); }
+  .story-section.dark .section-title { color: var(--paper); }
+  .story-section.dark .section-title em { color: var(--gold); }
+  .story-section.dark .eyebrow { color: var(--gold); }
+  .story-section.dark p { color: rgba(250, 248, 243, 0.75); }
+  .story-section.dark .stat-num { color: var(--gold); }
+
+  .story-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .story-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .story-section.dark .story-stats { border-top: 1px solid rgba(250, 248, 243, 0.15); }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .stat-label { font-size: 13px; color: var(--muted); }
+  .story-section.dark .stat-label { color: rgba(250, 248, 243, 0.6); }
+
+  .story-visual {
+    aspect-ratio: 4/5;
+    background: var(--paper-2);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .story-visual svg { width: 100%; height: 100%; }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 50px;
+  }
+
+  .value-block {
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  .value-block .num {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .value-block h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .value-block p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .story-section { grid-template-columns: 1fr; gap: 40px; }
+    .values-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+      <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+      <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+    </svg>
+    <span class="nav-brand">Tsar Linen</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Collection</a></li>
+    <li><a href="about.html" class="active">Our Story</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="nav-cta">Request Quote</a></li>
+  </ul>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<header class="page-header">
+  <span class="eyebrow">Our Story</span>
+  <h1>Three generations of <em>thread.</em></h1>
+  <p>Tsar Linen is a bridge — between American buyers who refuse to compromise on quality, and Indian craftsmen whose work has been hidden behind middlemen for too long.</p>
+</header>
+
+<section class="story-section">
+  <div class="story-text">
+    <span class="eyebrow">The Beginning</span>
+    <h2 class="section-title">A simple <em>observation.</em></h2>
+    <p>Tsar Linen was founded on a frustration we kept hearing from US buyers: they were paying boutique prices for commodity-quality apparel. Mass-produced tees marked up 4–5 times by the time they reached a corporate gift order or an event organizer's invoice.</p>
+    <p>Meanwhile, in Tirupur — the cotton-knit capital of India — family-run mills with three generations of expertise were producing world-class garments for European luxury brands, but had no way to reach American buyers directly.</p>
+    <p>We built that bridge. From skilled hands in India to a US-registered company that handles every order, every contract, every customer service call. Craftsmanship without the friction.</p>
+    <div class="story-stats">
+      <div><div class="stat-num">25+</div><div class="stat-label">Years of family manufacturing experience</div></div>
+      <div><div class="stat-num">100K+</div><div class="stat-label">Pieces produced monthly across our partner network</div></div>
+    </div>
+  </div>
+  <div class="story-visual">
+    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="500" fill="#f1ede2"/>
+      <g stroke="#5e1414" stroke-width="1.5" fill="none">
+        <line x1="60" y1="100" x2="60" y2="400"/>
+        <line x1="340" y1="100" x2="340" y2="400"/>
+        <line x1="60" y1="100" x2="340" y2="100"/>
+        <line x1="60" y1="400" x2="340" y2="400"/>
+      </g>
+      <g stroke="#8b1e1e" stroke-width="0.8" opacity="0.6">
+        <line x1="80" y1="100" x2="80" y2="400"/><line x1="100" y1="100" x2="100" y2="400"/><line x1="120" y1="100" x2="120" y2="400"/>
+        <line x1="140" y1="100" x2="140" y2="400"/><line x1="160" y1="100" x2="160" y2="400"/><line x1="180" y1="100" x2="180" y2="400"/>
+        <line x1="200" y1="100" x2="200" y2="400"/><line x1="220" y1="100" x2="220" y2="400"/><line x1="240" y1="100" x2="240" y2="400"/>
+        <line x1="260" y1="100" x2="260" y2="400"/><line x1="280" y1="100" x2="280" y2="400"/><line x1="300" y1="100" x2="300" y2="400"/>
+        <line x1="320" y1="100" x2="320" y2="400"/>
+      </g>
+      <g stroke="#b8935a" stroke-width="1.2" opacity="0.7">
+        <line x1="60" y1="180" x2="340" y2="180"/><line x1="60" y1="220" x2="340" y2="220"/>
+        <line x1="60" y1="260" x2="340" y2="260"/><line x1="60" y1="300" x2="340" y2="300"/>
+        <line x1="60" y1="340" x2="340" y2="340"/>
+      </g>
+      <circle cx="200" cy="250" r="55" fill="#faf8f3" stroke="#8b1e1e" stroke-width="1.5"/>
+      <g transform="translate(200, 230)" fill="#1a1a1a">
+        <path d="M -16 8 L -16 -2 L -7 5 L 0 -6 L 7 5 L 16 -2 L 16 8 Z"/>
+        <line x1="-19" y1="8" x2="19" y2="8" stroke="#1a1a1a" stroke-width="2.5"/>
+      </g>
+      <text x="200" y="278" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#8b1e1e" letter-spacing="2">— EST. 2025 —</text>
+    </svg>
+  </div>
+</section>
+
+<section class="story-section dark">
+  <div class="story-visual" style="background: #2a2a2a;">
+    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="500" fill="#2a2a2a"/>
+      <g fill="none" stroke="#b8935a" stroke-width="1.2" opacity="0.5">
+        <circle cx="200" cy="250" r="180"/>
+        <circle cx="200" cy="250" r="140"/>
+        <circle cx="200" cy="250" r="100"/>
+      </g>
+      <g fill="#b8935a">
+        <circle cx="120" cy="180" r="6"/>
+        <circle cx="280" cy="200" r="6"/>
+        <circle cx="200" cy="350" r="6"/>
+        <circle cx="290" cy="330" r="6"/>
+        <circle cx="130" cy="320" r="6"/>
+      </g>
+      <g stroke="#b8935a" stroke-width="0.8" opacity="0.6">
+        <line x1="120" y1="180" x2="200" y2="250"/>
+        <line x1="280" y1="200" x2="200" y2="250"/>
+        <line x1="200" y1="350" x2="200" y2="250"/>
+        <line x1="290" y1="330" x2="200" y2="250"/>
+        <line x1="130" y1="320" x2="200" y2="250"/>
+      </g>
+      <circle cx="200" cy="250" r="14" fill="#faf8f3"/>
+      <text x="200" y="255" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600" fill="#1a1a1a">T</text>
+      <text x="200" y="450" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#b8935a" letter-spacing="3">— TIRUPUR · LUDHIANA —</text>
+    </svg>
+  </div>
+  <div class="story-text">
+    <span class="eyebrow">Our Network</span>
+    <h2 class="section-title">Skilled hands, <em>verified.</em></h2>
+    <p>We don't own factories — we partner with the best ones. Every Tsar partner is family-operated, OEKO-TEX certified, and audited annually for fair labor practices and environmental compliance.</p>
+    <p>Our primary partners in Tirupur produce our cotton knits — t-shirts, polos, long sleeves. Our partners in Ludhiana produce our woven goods and heavier-weight pieces. Each order is matched to the partner whose specialty it is, not whoever has open capacity.</p>
+    <p>This isn't a marketplace where you might get any factory. Every Tsar order is traceable from yarn to your warehouse.</p>
+    <div class="story-stats">
+      <div><div class="stat-num">5</div><div class="stat-label">Vetted manufacturing partners across India</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">OEKO-TEX certified production facilities</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--paper-2); padding: 100px 5%;">
+  <span class="eyebrow">What We Stand For</span>
+  <h2 class="section-title">Three principles, <em>non-negotiable.</em></h2>
+
+  <div class="values-grid">
+    <div class="value-block">
+      <div class="num">01</div>
+      <h3>Transparency</h3>
+      <p>You see your manufacturer. You see your factory. You see the inspection reports. No black boxes, no "trust us, it'll be fine."</p>
+    </div>
+    <div class="value-block">
+      <div class="num">02</div>
+      <h3>Fair Labor</h3>
+      <p>Every partner pays at or above the prevailing wage for skilled garment workers in their region. Annual third-party audits. Non-negotiable.</p>
+    </div>
+    <div class="value-block">
+      <div class="num">03</div>
+      <h3>True Pricing</h3>
+      <p>What we quote is what you pay — delivered, duties included. No surprise customs fees, no fuel surcharges, no last-minute "we ran into an issue" calls.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" style="background: var(--ink); color: var(--paper); padding: 80px 5%; text-align: center;">
+  <h2 style="font-family: var(--serif); font-size: clamp(28px, 3.5vw, 42px); font-weight: 500; margin-bottom: 16px; line-height: 1.2;">Want to <em style="color: var(--gold); font-style: italic;">visit?</em></h2>
+  <p style="color: rgba(250, 248, 243, 0.7); font-size: 17px; max-width: 580px; margin: 0 auto 32px;">Serious buyers are welcome to tour our partner facilities in India. We'll arrange the trip. You see the operation firsthand.</p>
+  <a href="contact.html" class="btn-primary" style="background: var(--gold); color: var(--ink);">Request a Visit</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="color:var(--paper);">
+          <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+          <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+          <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+        </svg>
+        <span class="nav-brand">Tsar Linen</span>
+      </a>
+      <p>Premium wholesale apparel and textiles, manufactured in India and delivered across the United States.</p>
+    </div>
+    <div class="footer-col"><h5>Collection</h5><ul><li><a href="products.html">Classic Crew</a></li><li><a href="products.html">Heavyweight</a></li><li><a href="products.html">Custom Branded</a></li><li><a href="contact.html">Request Samples</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">Our Story</a></li><li><a href="process.html">Process</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Connect</h5><ul><li><a href="contact.html">Get a Quote</a></li><li><a href="mailto:lockwoodkuttan@gmail.com">Email Us</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tsar Linen. All rights reserved.</span>
+    <span>Crafted in India · Delivered from the USA</span>
+  </div>
+</footer>
+
+</body>
+</html>

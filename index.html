@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tsar Linen — Premium Wholesale Apparel & Textiles</title>
+<meta name="description" content="Tsar Linen supplies premium-quality wholesale apparel and textiles to corporate buyers, retailers, and event organizers across the United States. Crafted in India, delivered to your door." />
+<meta name="keywords" content="wholesale t-shirts, bulk apparel USA, corporate clothing wholesale, custom branded shirts, India textile manufacturer, Tsar Linen" />
+<meta name="author" content="Tsar Linen" />
+
+<!-- Open Graph / social sharing -->
+<meta property="og:title" content="Tsar Linen — Premium Wholesale Apparel & Textiles" />
+<meta property="og:description" content="Crafted in India. Trusted by US buyers. Wholesale apparel that doesn't compromise." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tsarlinen.com/" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    padding: 120px 5% 80px;
+    gap: 60px;
+  }
+
+  .hero-content { max-width: 580px; }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(42px, 5.5vw, 72px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 40px;
+    max-width: 520px;
+    line-height: 1.65;
+  }
+
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .hero-visual {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tshirt-stack { position: relative; width: 100%; height: 100%; }
+
+  .tshirt-card {
+    position: absolute;
+    width: 320px;
+    height: 380px;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    overflow: hidden;
+    transition: transform 0.4s ease;
+  }
+
+  .tshirt-card svg { width: 100%; height: 100%; }
+
+  .tshirt-1 { top: 10%; right: 5%; background: var(--paper-2); transform: rotate(-3deg); z-index: 3; }
+  .tshirt-2 { top: 35%; right: 30%; background: #2a2a2a; transform: rotate(4deg); z-index: 2; }
+  .tshirt-3 { top: 55%; right: 15%; background: var(--accent); transform: rotate(-2deg); z-index: 1; }
+
+  .tshirt-card:hover { transform: rotate(0deg) scale(1.03); z-index: 10; }
+
+  .stamp {
+    position: absolute;
+    top: 30px;
+    right: 5%;
+    width: 130px;
+    height: 130px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--accent);
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    transform: rotate(-12deg);
+    background: rgba(250, 248, 243, 0.9);
+    z-index: 20;
+  }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust-bar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+
+  .trust-stat .num {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .trust-stat .label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(250, 248, 243, 0.7);
+  }
+
+  /* ---------- VALUES ---------- */
+  .values { background: var(--paper-2); }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 50px;
+  }
+
+  .value-card { background: var(--paper-2); padding: 48px 36px; transition: background 0.3s; }
+  .value-card:hover { background: var(--paper); }
+
+  .value-num {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+
+  .value-icon { width: 44px; height: 44px; margin-bottom: 24px; color: var(--ink); }
+
+  .value-card h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .value-card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+  /* ---------- FEATURED PRODUCTS ---------- */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 50px;
+  }
+
+  .product-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+  .product-img {
+    height: 280px;
+    background: var(--paper-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  .product-img svg { width: 70%; height: 70%; }
+
+  .product-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 12px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .product-info { padding: 24px; }
+
+  .product-info h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .product-info .specs {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .product-info .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .price-label { font-size: 12px; color: var(--muted); letter-spacing: 0.5px; }
+  .price-value { font-family: var(--serif); font-size: 20px; font-weight: 500; }
+
+  .view-all {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 5%;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .cta-band h2 em { color: var(--gold); font-style: italic; }
+
+  .cta-band p {
+    color: rgba(250, 248, 243, 0.7);
+    font-size: 17px;
+    max-width: 580px;
+    margin: 0 auto 32px;
+  }
+
+  .cta-band .btn-primary { background: var(--gold); color: var(--ink); }
+  .cta-band .btn-primary:hover { background: var(--paper); }
+
+  /* ---------- TESTIMONIAL ---------- */
+  .testimonial { background: var(--paper-2); padding: 100px 5%; text-align: center; }
+
+  .testimonial-quote {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+
+  .testimonial-quote::before {
+    content: '"';
+    font-size: 100px;
+    color: var(--accent);
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    opacity: 0.3;
+    font-family: var(--serif);
+  }
+
+  .testimonial-author { font-size: 14px; color: var(--muted); letter-spacing: 1px; }
+  .testimonial-author strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 100px; }
+    .hero-visual { height: 400px; order: 2; }
+    .trust-bar { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .value-grid, .product-grid { grid-template-columns: 1fr; }
+    .tshirt-card { width: 240px; height: 290px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+      <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+      <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+    </svg>
+    <span class="nav-brand">Tsar Linen</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="products.html">Collection</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="nav-cta">Request Quote</a></li>
+  </ul>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Premium Wholesale Apparel</span>
+    <h1>Crafted in India.<br/>Trusted by <em>America.</em></h1>
+    <p class="hero-sub">Tsar Linen supplies premium-quality apparel and textiles to corporate buyers, retailers, and event organizers across the United States. Direct from our manufacturing partners in India — without the markup.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary">Request a Quote</a>
+      <a href="products.html" class="btn-secondary">View Collection</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stamp">Crafted<br/>since 2025<br/>· Tsar ·</div>
+    <div class="tshirt-stack">
+      <div class="tshirt-card tshirt-1">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#faf8f3" stroke="#e3ddc9" stroke-width="1.5"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#e3ddc9" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="tshirt-card tshirt-2">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#2a2a2a" stroke="#444" stroke-width="1.5"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#444" stroke-width="1.5"/>
+          <g transform="translate(100, 130)" fill="#b8935a">
+            <path d="M -12 6 L -12 -1 L -5 4 L 0 -4 L 5 4 L 12 -1 L 12 6 Z"/>
+            <line x1="-14" y1="6" x2="14" y2="6" stroke="#b8935a" stroke-width="1.5"/>
+            <text x="0" y="22" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600">T</text>
+          </g>
+        </svg>
+      </div>
+      <div class="tshirt-card tshirt-3">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#8b1e1e" stroke="#5e1414" stroke-width="1.5"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#5e1414" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-stat"><div class="num">50+</div><div class="label">Pieces Minimum</div></div>
+  <div class="trust-stat"><div class="num">180gsm</div><div class="label">Premium Cotton</div></div>
+  <div class="trust-stat"><div class="num">4–6</div><div class="label">Weeks Delivery</div></div>
+  <div class="trust-stat"><div class="num">100%</div><div class="label">Quality Guaranteed</div></div>
+</div>
+
+<!-- VALUES -->
+<section class="values">
+  <span class="eyebrow">Why Tsar</span>
+  <h2 class="section-title">A wholesale partnership <em>built differently.</em></h2>
+  <p class="section-intro">We're not a marketplace, a middleman, or a print-on-demand shop. We're a direct line to skilled manufacturing — with US-based service and accountability.</p>
+
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-num">— 01</div>
+      <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l3-3m0 0l3 3m-3-3v8m6-13h6m-6 5h6m-6 5h4"/></svg>
+      <h3>Direct Manufacturing</h3>
+      <p>No middlemen, no inflated markups. Our production partners in Tirupur and Ludhiana ship straight to your warehouse, cutting 30–40% off typical wholesale pricing.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">— 02</div>
+      <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      <h3>Quality You Can Feel</h3>
+      <p>Combed ring-spun cotton, double-stitched seams, pre-shrunk fabric, OEKO-TEX certified dyes. Every piece is inspected before it leaves the floor.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">— 03</div>
+      <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4-9-4zm0 6l9 4 9-4M3 17l9 4 9-4"/></svg>
+      <h3>US Service, Global Scale</h3>
+      <p>Order from the US, get billed in USD, talk to a US-based account manager. We handle customs, duties, and logistics — you get a delivered price, no surprises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section>
+  <span class="eyebrow">The Collection</span>
+  <h2 class="section-title">Built to <em>last,</em> priced to <em>scale.</em></h2>
+  <p class="section-intro">Three core products, all customizable, all delivered worldwide. Our most-ordered styles below.</p>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-tag">Bestseller</span>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#faf8f3" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3>The Classic Crew</h3>
+        <p class="specs">180gsm · Premium cotton · Unisex · XS–3XL</p>
+        <div class="price"><span class="price-label">From</span><span class="price-value">$4.50 / unit</span></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-tag">Premium</span>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#2a2a2a" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#444" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3>The Heavyweight</h3>
+        <p class="specs">220gsm · Ring-spun cotton · Boxy fit · S–2XL</p>
+        <div class="price"><span class="price-label">From</span><span class="price-value">$6.80 / unit</span></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-tag">Custom</span>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#8b1e1e" stroke="#5e1414" stroke-width="2"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#5e1414" stroke-width="2"/>
+          <g transform="translate(100, 130)" fill="#faf8f3">
+            <path d="M -12 6 L -12 -1 L -5 4 L 0 -4 L 5 4 L 12 -1 L 12 6 Z"/>
+            <line x1="-14" y1="6" x2="14" y2="6" stroke="#faf8f3" stroke-width="1.5"/>
+            <text x="0" y="22" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600">T</text>
+          </g>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3>Custom Branded</h3>
+        <p class="specs">Your logo · Embroidery, screen print, or DTG · Any color</p>
+        <div class="price"><span class="price-label">From</span><span class="price-value">$5.50 / unit</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="view-all">
+    <a href="products.html" class="btn-secondary">View Full Collection</a>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <p class="testimonial-quote">Tsar gave us the quality of a $20 retail tee at wholesale pricing — and they hit our event deadline with two weeks to spare. They've earned every reorder.</p>
+  <p class="testimonial-author"><strong>Sarah Chen</strong> · Director of Events · A National HR Conference</p>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>Ready to <em>order?</em></h2>
+  <p>Tell us what you need. A real person on our team responds within one business day with a delivered price, lead time, and sample options.</p>
+  <a href="contact.html" class="btn-primary">Request a Quote</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="color:var(--paper);">
+          <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+          <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+          <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+        </svg>
+        <span class="nav-brand">Tsar Linen</span>
+      </a>
+      <p>Premium wholesale apparel and textiles, manufactured in India and delivered across the United States. Built for corporate buyers, retailers, and event organizers who refuse to compromise.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Collection</h5>
+      <ul>
+        <li><a href="products.html">Classic Crew</a></li>
+        <li><a href="products.html">Heavyweight</a></li>
+        <li><a href="products.html">Custom Branded</a></li>
+        <li><a href="contact.html">Request Samples</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="contact.html">Get a Quote</a></li>
+        <li><a href="mailto:lockwoodkuttan@gmail.com">Email Us</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tsar Linen. All rights reserved.</span>
+    <span>Crafted in India · Delivered from the USA</span>
+  </div>
+</footer>
+
+</body>
+</html>

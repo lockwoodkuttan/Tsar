@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Collection — Tsar Linen Wholesale Apparel</title>
+<meta name="description" content="Browse the full Tsar Linen wholesale collection. Premium cotton t-shirts, heavyweight tees, polos, and custom-branded apparel. Pricing from $4.50/unit." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    justify-content: center;
+  }
+  .filter-pill {
+    padding: 8px 20px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--sans);
+    color: var(--ink);
+  }
+  .filter-pill.active, .filter-pill:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .product-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+  .product-img {
+    height: 320px;
+    background: var(--paper-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .product-img svg { width: 70%; height: 70%; }
+
+  .product-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 12px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .product-info { padding: 28px; }
+
+  .product-info h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .product-info .specs {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+
+  .price-tiers {
+    background: var(--paper-2);
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 18px;
+  }
+
+  .price-tier {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+    color: var(--muted);
+  }
+  .price-tier strong { color: var(--ink); font-weight: 500; }
+
+  .product-info .actions {
+    display: flex;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .product-info .actions a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+  .actions .req { background: var(--ink); color: var(--paper); }
+  .actions .req:hover { background: var(--accent); }
+  .actions .sample { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .actions .sample:hover { background: var(--ink); color: var(--paper); }
+
+  @media (max-width: 900px) {
+    .product-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+      <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+      <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+    </svg>
+    <span class="nav-brand">Tsar Linen</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html" class="active">Collection</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="nav-cta">Request Quote</a></li>
+  </ul>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<header class="page-header">
+  <span class="eyebrow">The Collection</span>
+  <h1>Built to <em>last,</em> priced to <em>scale.</em></h1>
+  <p>Six core products, all customizable, all delivered direct to your warehouse. Volume discounts kick in at 250 units.</p>
+</header>
+
+<section>
+  <div class="filters">
+    <button class="filter-pill active">All Products</button>
+    <button class="filter-pill">T-Shirts</button>
+    <button class="filter-pill">Polos</button>
+    <button class="filter-pill">Custom Branded</button>
+    <button class="filter-pill">Heavyweight</button>
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-tag">Bestseller</span>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#faf8f3" stroke="#1a1a1a" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/></svg>
+      </div>
+      <div class="product-info">
+        <h3>The Classic Crew</h3>
+        <p class="specs">180gsm · 100% premium cotton · Pre-shrunk · Unisex fit · XS–3XL · 12 colors available</p>
+        <div class="price-tiers">
+          <div class="price-tier"><span>50–249 units</span><strong>$5.50 / unit</strong></div>
+          <div class="price-tier"><span>250–999 units</span><strong>$4.80 / unit</strong></div>
+          <div class="price-tier"><span>1,000+ units</span><strong>$4.50 / unit</strong></div>
+        </div>
+        <div class="actions">
+          <a href="contact.html?product=classic-crew" class="req">Request Quote</a>
+          <a href="contact.html?product=classic-crew&sample=1" class="sample">Get Sample</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-tag">Premium</span>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#2a2a2a" stroke="#1a1a1a" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#444" stroke-width="2"/></svg>
+      </div>
+      <div class="product-info">
+        <h3>The Heavyweight</h3>
+        <p class="specs">220gsm · Ring-spun cotton · Garment-washed · Boxy fit · S–2XL · 8 colors available</p>
+        <div class="price-tiers">
+          <div class="price-tier"><span>50–249 units</span><strong>$8.00 / unit</strong></div>
+          <div class="price-tier"><span>250–999 units</span><strong>$7.20 / unit</strong></div>
+          <div class="price-tier"><span>1,000+ units</span><strong>$6.80 / unit</strong></div>
+        </div>
+        <div class="actions">
+          <a href="contact.html?product=heavyweight" class="req">Request Quote</a>
+          <a href="contact.html?product=heavyweight&sample=1" class="sample">Get Sample</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-tag">Custom</span>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#8b1e1e" stroke="#5e1414" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#5e1414" stroke-width="2"/><g transform="translate(100, 130)" fill="#faf8f3"><path d="M -12 6 L -12 -1 L -5 4 L 0 -4 L 5 4 L 12 -1 L 12 6 Z"/><line x1="-14" y1="6" x2="14" y2="6" stroke="#faf8f3" stroke-width="1.5"/><text x="0" y="22" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600">T</text></g></svg>
+      </div>
+      <div class="product-info">
+        <h3>Custom Branded</h3>
+        <p class="specs">Your logo · Embroidery, screen print, or DTG · Any base color · 50-piece minimum per design</p>
+        <div class="price-tiers">
+          <div class="price-tier"><span>50–249 units</span><strong>$6.50 / unit</strong></div>
+          <div class="price-tier"><span>250–999 units</span><strong>$5.90 / unit</strong></div>
+          <div class="price-tier"><span>1,000+ units</span><strong>$5.50 / unit</strong></div>
+        </div>
+        <div class="actions">
+          <a href="contact.html?product=custom" class="req">Request Quote</a>
+          <a href="contact.html?product=custom&sample=1" class="sample">Get Sample</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 25 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#3a4d3a" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M 85 30 L 90 70 L 100 65 L 110 70 L 115 30" fill="#faf8f3" stroke="#1a1a1a" stroke-width="1.5"/>
+          <line x1="100" y1="40" x2="100" y2="55" stroke="#1a1a1a" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3>The Polo</h3>
+        <p class="specs">200gsm · Pique cotton-poly blend · Three-button placket · S–3XL · 10 colors available</p>
+        <div class="price-tiers">
+          <div class="price-tier"><span>50–249 units</span><strong>$9.50 / unit</strong></div>
+          <div class="price-tier"><span>250–999 units</span><strong>$8.40 / unit</strong></div>
+          <div class="price-tier"><span>1,000+ units</span><strong>$7.80 / unit</strong></div>
+        </div>
+        <div class="actions">
+          <a href="contact.html?product=polo" class="req">Request Quote</a>
+          <a href="contact.html?product=polo&sample=1" class="sample">Get Sample</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#4a5d7e" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="55" y1="155" x2="145" y2="155" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3>The Long Sleeve</h3>
+        <p class="specs">200gsm · Cotton-poly blend · Ribbed cuffs · Unisex · S–2XL · 6 colors available</p>
+        <div class="price-tiers">
+          <div class="price-tier"><span>50–249 units</span><strong>$7.20 / unit</strong></div>
+          <div class="price-tier"><span>250–999 units</span><strong>$6.40 / unit</strong></div>
+          <div class="price-tier"><span>1,000+ units</span><strong>$5.90 / unit</strong></div>
+        </div>
+        <div class="actions">
+          <a href="contact.html?product=longsleeve" class="req">Request Quote</a>
+          <a href="contact.html?product=longsleeve&sample=1" class="sample">Get Sample</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-tag">New</span>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#d4c5a9" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+          <path d="M 55 90 L 145 90" stroke="#1a1a1a" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,3"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3>Eco Linen Blend</h3>
+        <p class="specs">160gsm · 60% linen / 40% cotton · Naturally cooling · Unisex · S–2XL · 5 earth tones</p>
+        <div class="price-tiers">
+          <div class="price-tier"><span>50–249 units</span><strong>$11.00 / unit</strong></div>
+          <div class="price-tier"><span>250–999 units</span><strong>$9.80 / unit</strong></div>
+          <div class="price-tier"><span>1,000+ units</span><strong>$9.20 / unit</strong></div>
+        </div>
+        <div class="actions">
+          <a href="contact.html?product=linen" class="req">Request Quote</a>
+          <a href="contact.html?product=linen&sample=1" class="sample">Get Sample</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="background: var(--paper-2); text-align: center;">
+  <span class="eyebrow">Don't see what you need?</span>
+  <h2 class="section-title" style="margin: 0 auto 20px;">We can <em>make it.</em></h2>
+  <p class="section-intro" style="margin: 0 auto 40px;">Custom fits, custom fabrics, custom prints. If you can describe it, we can quote it.</p>
+  <a href="contact.html" class="btn-primary">Request a Custom Quote</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="color:var(--paper);">
+          <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+          <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+          <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+        </svg>
+        <span class="nav-brand">Tsar Linen</span>
+      </a>
+      <p>Premium wholesale apparel and textiles, manufactured in India and delivered across the United States.</p>
+    </div>
+    <div class="footer-col"><h5>Collection</h5><ul><li><a href="products.html">Classic Crew</a></li><li><a href="products.html">Heavyweight</a></li><li><a href="products.html">Custom Branded</a></li><li><a href="contact.html">Request Samples</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">Our Story</a></li><li><a href="process.html">Process</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Connect</h5><ul><li><a href="contact.html">Get a Quote</a></li><li><a href="mailto:lockwoodkuttan@gmail.com">Email Us</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tsar Linen. All rights reserved.</span>
+    <span>Crafted in India · Delivered from the USA</span>
+  </div>
+</footer>
+
+</body>
+</html>

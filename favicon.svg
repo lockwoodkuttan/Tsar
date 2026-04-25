@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="#1a1a1a"/>
+  <line x1="2" y1="14" x2="30" y2="14" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="16" y="27" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="700" fill="#1a1a1a">T</text>
+</svg>

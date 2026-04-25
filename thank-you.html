@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You — Tsar Linen</title>
+<meta name="description" content="Your quote request has been received. We'll respond within one business day." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .thank-you {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 80px;
+  }
+
+  .thank-you-content { max-width: 600px; }
+
+  .check-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .thank-you h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .thank-you h1 em { font-style: italic; color: var(--accent); }
+
+  .thank-you p {
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+
+  .next-steps {
+    background: var(--paper-2);
+    padding: 32px;
+    border-radius: 4px;
+    margin: 40px 0;
+    text-align: left;
+  }
+
+  .next-steps h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .next-steps ol {
+    padding-left: 24px;
+    color: var(--muted);
+  }
+
+  .next-steps li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+      <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+      <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+    </svg>
+    <span class="nav-brand">Tsar Linen</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Collection</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="nav-cta">Request Quote</a></li>
+  </ul>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<main class="thank-you">
+  <div class="thank-you-content">
+    <div class="check-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h1>Quote request <em>received.</em></h1>
+    <p>Thanks for reaching out. We've got your details and someone from our team will respond within one business day.</p>
+
+    <div class="next-steps">
+      <h3>What happens next</h3>
+      <ol>
+        <li>We review your request and prep a delivered price (DDP, USD)</li>
+        <li>You receive a personal email with pricing, lead time, and sample options</li>
+        <li>Once you approve, we ship a physical sample for inspection</li>
+        <li>Sample approved → production starts → delivered to your door</li>
+      </ol>
+    </div>
+
+    <p>While you wait, learn more about our story or browse our collection.</p>
+
+    <div style="margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="about.html" class="btn-secondary">Our Story</a>
+      <a href="products.html" class="btn-primary">Browse Collection</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="color:var(--paper);">
+          <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+          <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+          <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+        </svg>
+        <span class="nav-brand">Tsar Linen</span>
+      </a>
+      <p>Premium wholesale apparel and textiles, manufactured in India and delivered across the United States.</p>
+    </div>
+    <div class="footer-col"><h5>Collection</h5><ul><li><a href="products.html">Classic Crew</a></li><li><a href="products.html">Heavyweight</a></li><li><a href="products.html">Custom Branded</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">Our Story</a></li><li><a href="process.html">Process</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Connect</h5><ul><li><a href="contact.html">Get a Quote</a></li><li><a href="mailto:lockwoodkuttan@gmail.com">Email Us</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tsar Linen. All rights reserved.</span>
+    <span>Crafted in India · Delivered from the USA</span>
+  </div>
+</footer>
+
+</body>
+</html>

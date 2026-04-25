@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request a Quote — Tsar Linen</title>
+<meta name="description" content="Request a wholesale quote from Tsar Linen. Tell us what you need and we'll respond within one business day with delivered pricing and lead times." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+    padding: 80px 5%;
+  }
+
+  .contact-info h2 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .contact-info h2 em { font-style: italic; color: var(--accent); }
+
+  .contact-info p {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .contact-method {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--paper-2);
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .contact-method svg { width: 24px; height: 24px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+  .contact-method .label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .contact-method .value {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+  }
+
+  .quote-form {
+    background: var(--paper-2);
+    padding: 48px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .form-group label .required { color: var(--accent); }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 18px;
+    border: none;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 12px;
+    transition: background 0.2s;
+  }
+
+  .form-submit:hover { background: var(--accent); }
+
+  .form-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+    .quote-form { padding: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+      <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+      <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+    </svg>
+    <span class="nav-brand">Tsar Linen</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Collection</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="active nav-cta">Request Quote</a></li>
+  </ul>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<header class="page-header">
+  <span class="eyebrow">Get Started</span>
+  <h1>Request a wholesale <em>quote.</em></h1>
+  <p>Tell us what you need. A real person on our team responds within one business day with a delivered price, lead time, and sample options.</p>
+</header>
+
+<section style="padding: 0;">
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <h2>Real responses, <em>not auto-replies.</em></h2>
+      <p>Every inquiry goes to a person, not a chatbot. We don't run drip campaigns, sell your data, or add you to mailing lists. Your details are used only to prepare your quote.</p>
+
+      <div class="contact-method">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <div>
+          <div class="label">Email</div>
+          <div class="value">lockwoodkuttan@gmail.com</div>
+        </div>
+      </div>
+
+      <div class="contact-method">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div>
+          <div class="label">Response Time</div>
+          <div class="value">Within 1 business day</div>
+        </div>
+      </div>
+
+      <div class="contact-method">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <div>
+          <div class="label">Locations</div>
+          <div class="value">USA · India</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      NETLIFY FORM:
+      The data-netlify="true" attribute tells Netlify to capture this form's submissions.
+      You'll receive an email at lockwoodkuttan@gmail.com whenever someone submits.
+      To configure email notifications: Netlify dashboard → Forms → Settings & usage → Form notifications.
+    -->
+    <form
+      class="quote-form"
+      name="quote-request"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/thank-you.html"
+    >
+      <input type="hidden" name="form-name" value="quote-request" />
+      <p style="display:none;">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name <span class="required">*</span></label>
+          <input type="text" name="name" required />
+        </div>
+        <div class="form-group">
+          <label>Company <span class="required">*</span></label>
+          <input type="text" name="company" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Work Email <span class="required">*</span></label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" name="phone" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Product Interest</label>
+          <select name="product">
+            <option>The Classic Crew</option>
+            <option>The Heavyweight</option>
+            <option>Custom Branded</option>
+            <option>Polos</option>
+            <option>Long Sleeve</option>
+            <option>Eco Linen Blend</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Quantity Estimate</label>
+          <select name="quantity">
+            <option>50–100 units</option>
+            <option>100–250 units</option>
+            <option>250–500 units</option>
+            <option>500–1,000 units</option>
+            <option>1,000–5,000 units</option>
+            <option>5,000+ units</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Project Details</label>
+        <textarea name="details" placeholder="Tell us about your project — colors, branding, deadline, anything else we should know."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Request My Quote</button>
+      <p class="form-note">We'll respond within one business day. No spam, ever.<br/>Or email us directly at <a href="mailto:lockwoodkuttan@gmail.com" style="color:var(--accent);">lockwoodkuttan@gmail.com</a></p>
+    </form>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="color:var(--paper);">
+          <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+          <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+          <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+        </svg>
+        <span class="nav-brand">Tsar Linen</span>
+      </a>
+      <p>Premium wholesale apparel and textiles, manufactured in India and delivered across the United States.</p>
+    </div>
+    <div class="footer-col"><h5>Collection</h5><ul><li><a href="products.html">Classic Crew</a></li><li><a href="products.html">Heavyweight</a></li><li><a href="products.html">Custom Branded</a></li><li><a href="contact.html">Request Samples</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">Our Story</a></li><li><a href="process.html">Process</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Connect</h5><ul><li><a href="contact.html">Get a Quote</a></li><li><a href="mailto:lockwoodkuttan@gmail.com">Email Us</a></li><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tsar Linen. All rights reserved.</span>
+    <span>Crafted in India · Delivered from the USA</span>
+  </div>
+</footer>
+
+</body>
+</html>
