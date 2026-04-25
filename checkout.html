@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Checkout — Request Wholesale Quote · Tsar Linen</title>
+<meta name="description" content="Review your cart and submit a wholesale quote request. We respond within 1 business day with final delivered pricing." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .checkout-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    padding: 60px 5%;
+    align-items: start;
+  }
+
+  .checkout-section h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .checkout-section p.lead {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .order-summary {
+    background: var(--paper-2);
+    padding: 32px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    position: sticky;
+    top: 100px;
+  }
+
+  .order-summary h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .order-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .order-item:last-of-type { border-bottom: none; }
+
+  .order-item-img {
+    width: 60px;
+    height: 70px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .order-item-img svg { width: 80%; height: 80%; }
+
+  .order-item-info { flex: 1; min-width: 0; }
+  .order-item-info h4 {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 2px;
+  }
+
+  .order-item-info p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 1px 0;
+  }
+
+  .order-item-total {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  .order-totals {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .total-row.grand {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .total-row.grand strong {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--accent);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .form-group label .required { color: var(--accent); }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--accent);
+  }
+
+  .form-group textarea { min-height: 100px; resize: vertical; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 18px;
+    border: none;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 12px;
+    transition: background 0.2s;
+  }
+
+  .form-submit:hover { background: var(--accent); }
+
+  .empty-cart-msg {
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .empty-cart-msg h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .empty-cart-msg p {
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .info-banner {
+    background: var(--paper-2);
+    padding: 16px 20px;
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+
+  .info-banner p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .info-banner strong { color: var(--ink); }
+
+  @media (max-width: 900px) {
+    .checkout-grid { grid-template-columns: 1fr; gap: 40px; }
+    .order-summary { position: static; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+      <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+      <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+    </svg>
+    <span class="nav-brand">Tsar Linen</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Collection</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="contact.html" class="nav-cta">Request Quote</a></li>
+  </ul>
+  <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</nav>
+
+<header class="page-header">
+  <span class="eyebrow">Checkout</span>
+  <h1>Submit your <em>quote request.</em></h1>
+  <p>Review your cart and tell us about your project. We respond within one business day with a final delivered price.</p>
+</header>
+
+<!-- Empty cart message -->
+<div id="emptyCartMsg" class="empty-cart-msg" style="display:none;">
+  <h2>Your cart is empty.</h2>
+  <p>Add items from our collection to begin a quote request.</p>
+  <a href="products.html" class="btn-primary">Browse Collection</a>
+</div>
+
+<!-- Checkout content -->
+<section id="checkoutContent" class="checkout-grid" style="display:none;padding-top:0;">
+
+  <div class="checkout-section">
+    <div class="info-banner">
+      <p><strong>This is a quote request, not a purchase.</strong> No payment is collected here. Once you submit, we review your cart and respond with final delivered pricing (DDP, USD), customs and duties included. You confirm before any production begins.</p>
+    </div>
+
+    <h2>Your details</h2>
+    <p class="lead">A real person on our team responds within one business day.</p>
+
+    <form name="cart-checkout" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" id="checkoutForm">
+      <input type="hidden" name="form-name" value="cart-checkout" />
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="hidden" name="cart_summary" id="cartSummaryField" />
+      <input type="hidden" name="cart_total" id="cartTotalField" />
+      <input type="hidden" name="cart_units" id="cartUnitsField" />
+
+      <div class="form-row">
+        <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" name="name" required /></div>
+        <div class="form-group"><label>Company <span class="required">*</span></label><input type="text" name="company" required /></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group"><label>Work Email <span class="required">*</span></label><input type="email" name="email" required /></div>
+        <div class="form-group"><label>Phone (optional)</label><input type="tel" name="phone" /></div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Shipping Country</label>
+          <select name="country">
+            <option selected>United States</option><option>Canada</option><option>Mexico</option><option>Other (specify below)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Required Delivery Date</label>
+          <input type="date" name="delivery_date" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Branding / Customization</label>
+        <select name="branding">
+          <option>None — blank goods</option>
+          <option>Embroidery</option>
+          <option>Screen print</option>
+          <option>DTG (direct-to-garment)</option>
+          <option>Heat transfer / vinyl</option>
+          <option>Multiple — explain below</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Project Notes</label>
+        <textarea name="notes" placeholder="Anything else we should know — logo files, deadline pressures, budget constraints, etc."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Submit Quote Request</button>
+
+      <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:16px;">By submitting, you agree to our <a href="terms.html" style="color:var(--accent);">terms</a> and <a href="privacy.html" style="color:var(--accent);">privacy policy</a>.</p>
+    </form>
+  </div>
+
+  <aside class="order-summary" id="orderSummary">
+    <h3>Order summary</h3>
+    <div id="orderItems"></div>
+    <div class="order-totals">
+      <div class="total-row"><span>Total units</span><span id="orderUnits">0</span></div>
+      <div class="total-row"><span>Subtotal (estimate)</span><span id="orderSubtotal">$0.00</span></div>
+      <div class="total-row"><span>Customs, duties, shipping</span><span style="font-style:italic;">Calculated in quote</span></div>
+      <div class="total-row grand"><span>Estimated total</span><strong id="orderGrand">$0.00</strong></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:16px;line-height:1.6;">Final pricing is delivered (DDP, USD) and includes customs, duties, and shipping to your address. Final quote sent within 1 business day.</p>
+    <a href="products.html" style="display:block;text-align:center;margin-top:16px;font-size:13px;color:var(--accent);text-decoration:underline;">← Continue browsing</a>
+  </aside>
+
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="color:var(--paper);">
+          <path d="M 4 14 L 4 7 L 11 12 L 16 4 L 21 12 L 28 7 L 28 14 Z" fill="currentColor"/>
+          <line x1="2" y1="14" x2="30" y2="14" stroke="currentColor" stroke-width="2"/>
+          <text x="16" y="27" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="14" font-weight="600" fill="currentColor">T</text>
+        </svg>
+        <span class="nav-brand">Tsar Linen</span>
+      </a>
+      <p>Premium wholesale apparel and textiles, manufactured in India and delivered across the United States.</p>
+    </div>
+    <div class="footer-col"><h5>Collection</h5><ul><li><a href="products.html">Classic Crew</a></li><li><a href="products.html">Heavyweight</a></li><li><a href="products.html">Custom Branded</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">Our Story</a></li><li><a href="process.html">Process</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="footer-col"><h5>Connect</h5><ul><li><a href="contact.html">Get a Quote</a></li><li><a href="mailto:lockwoodkuttan@gmail.com">Email Us</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tsar Linen. All rights reserved.</span>
+    <span>Crafted in India · Delivered from the USA</span>
+  </div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+  // Populate the checkout page from cart
+  document.addEventListener('DOMContentLoaded', function() {
+    const cart = window.tsarCart.get();
+    const empty = document.getElementById('emptyCartMsg');
+    const content = document.getElementById('checkoutContent');
+
+    if (cart.length === 0) {
+      empty.style.display = 'block';
+      content.style.display = 'none';
+      return;
+    }
+
+    empty.style.display = 'none';
+    content.style.display = 'grid';
+
+    // Build order items
+    const itemsHtml = cart.map(item => `
+      <div class="order-item">
+        <div class="order-item-img">${item.svg || ''}</div>
+        <div class="order-item-info">
+          <h4>${item.name}</h4>
+          <p>${item.size} · ${item.color} · ${item.quantity} units</p>
+          <p>$${item.price.toFixed(2)} per unit</p>
+          <div class="order-item-total">$${(item.price * item.quantity).toFixed(2)}</div>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('orderItems').innerHTML = itemsHtml;
+
+    const total = window.tsarCart.total();
+    const count = window.tsarCart.count();
+    document.getElementById('orderSubtotal').textContent = '$' + total.toFixed(2);
+    document.getElementById('orderUnits').textContent = count + ' units';
+    document.getElementById('orderGrand').textContent = '$' + total.toFixed(2);
+
+    // Populate hidden fields with cart data so it gets emailed
+    const cartText = cart.map(item =>
+      `• ${item.name} | Size: ${item.size} | Color: ${item.color} | Qty: ${item.quantity} | $${item.price.toFixed(2)}/unit | Subtotal: $${(item.price * item.quantity).toFixed(2)}`
+    ).join('\n');
+
+    document.getElementById('cartSummaryField').value = cartText;
+    document.getElementById('cartTotalField').value = '$' + total.toFixed(2);
+    document.getElementById('cartUnitsField').value = count;
+
+    // Clear cart on successful submit
+    document.getElementById('checkoutForm').addEventListener('submit', function() {
+      setTimeout(() => window.tsarCart.clear(), 500);
+    });
+  });
+</script>
+
+</body>
+</html>

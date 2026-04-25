@@ -4,133 +4,30 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Collection — Tsar Linen Wholesale Apparel</title>
-<meta name="description" content="Browse the full Tsar Linen wholesale collection. Premium cotton t-shirts, heavyweight tees, polos, and custom-branded apparel. Pricing from $4.50/unit." />
+<meta name="description" content="Browse the full Tsar Linen wholesale collection. Add items to cart and request a personalized wholesale quote." />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <style>
-  .filters {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-    justify-content: center;
-  }
-  .filter-pill {
-    padding: 8px 20px;
-    border: 1px solid var(--line);
-    background: var(--paper);
-    border-radius: 20px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: var(--sans);
-    color: var(--ink);
-  }
-  .filter-pill.active, .filter-pill:hover {
-    background: var(--ink);
-    color: var(--paper);
-    border-color: var(--ink);
-  }
-
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-
-  .product-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
+  .filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 50px; justify-content: center; }
+  .filter-pill { padding: 8px 20px; border: 1px solid var(--line); background: var(--paper); border-radius: 20px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: var(--sans); color: var(--ink); }
+  .filter-pill.active, .filter-pill:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .product-card { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
   .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-
-  .product-img {
-    height: 320px;
-    background: var(--paper-2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid var(--line);
-    position: relative;
-  }
+  .product-img { height: 320px; background: var(--paper-2); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
   .product-img svg { width: 70%; height: 70%; }
-
-  .product-tag {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 4px 12px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 2px;
-  }
-
-  .product-info { padding: 28px; }
-
-  .product-info h3 {
-    font-family: var(--serif);
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .product-info .specs {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 18px;
-    line-height: 1.7;
-  }
-
-  .price-tiers {
-    background: var(--paper-2);
-    border-radius: 4px;
-    padding: 16px;
-    margin-bottom: 18px;
-  }
-
-  .price-tier {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    padding: 4px 0;
-    color: var(--muted);
-  }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; }
+  .product-tag { position: absolute; top: 16px; left: 16px; background: var(--ink); color: var(--paper); padding: 4px 12px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+  .product-info { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+  .product-info h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; margin-bottom: 10px; }
+  .product-info .specs { font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.7; }
+  .price-tiers { background: var(--paper-2); border-radius: 4px; padding: 16px; margin-bottom: 18px; }
+  .price-tier { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; color: var(--muted); }
   .price-tier strong { color: var(--ink); font-weight: 500; }
-
-  .product-info .actions {
-    display: flex;
-    gap: 8px;
-    padding-top: 16px;
-    border-top: 1px solid var(--line);
-  }
-  .product-info .actions a {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    font-size: 13px;
-    border-radius: 2px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 500;
-  }
-  .actions .req { background: var(--ink); color: var(--paper); }
-  .actions .req:hover { background: var(--accent); }
-  .actions .sample { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
-  .actions .sample:hover { background: var(--ink); color: var(--paper); }
-
-  @media (max-width: 900px) {
-    .product-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 900px) { .product-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -149,6 +46,14 @@
     <li><a href="products.html" class="active">Collection</a></li>
     <li><a href="about.html">Our Story</a></li>
     <li><a href="process.html">Process</a></li>
+    <li>
+      <button class="cart-icon-btn" onclick="window.tsarCart.open()" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        <span class="cart-badge">0</span>
+      </button>
+    </li>
     <li><a href="contact.html" class="nav-cta">Request Quote</a></li>
   </ul>
   <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
@@ -157,7 +62,7 @@
 <header class="page-header">
   <span class="eyebrow">The Collection</span>
   <h1>Built to <em>last,</em> priced to <em>scale.</em></h1>
-  <p>Six core products, all customizable, all delivered direct to your warehouse. Volume discounts kick in at 250 units.</p>
+  <p>Add items to your cart and proceed to checkout to request a personalized wholesale quote — no payment required.</p>
 </header>
 
 <section>
@@ -171,7 +76,7 @@
 
   <div class="product-grid">
 
-    <div class="product-card">
+    <div class="product-card" data-image="images/classic-crew.jpg">
       <div class="product-img">
         <span class="product-tag">Bestseller</span>
         <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#faf8f3" stroke="#1a1a1a" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/></svg>
@@ -184,14 +89,21 @@
           <div class="price-tier"><span>250–999 units</span><strong>$4.80 / unit</strong></div>
           <div class="price-tier"><span>1,000+ units</span><strong>$4.50 / unit</strong></div>
         </div>
-        <div class="actions">
-          <a href="contact.html?product=classic-crew" class="req">Request Quote</a>
-          <a href="contact.html?product=classic-crew&sample=1" class="sample">Get Sample</a>
+        <div class="add-to-cart-form">
+          <div class="atc-row">
+            <div class="atc-field"><label>Size</label><select data-field="size"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option></select></div>
+            <div class="atc-field"><label>Color</label><select data-field="color"><option>White</option><option selected>Black</option><option>Navy</option><option>Heather Gray</option><option>Maroon</option></select></div>
+          </div>
+          <div class="atc-row">
+            <div class="atc-field"><label>Quantity (min 50)</label><input type="number" min="50" step="50" value="50" data-field="quantity" /></div>
+            <div class="atc-field" style="display:flex;align-items:flex-end;"><span style="font-family:var(--serif);font-size:18px;color:var(--ink);" data-display="price">$5.50/unit</span></div>
+          </div>
+          <button class="atc-add-btn" data-product="classic-crew" data-name="The Classic Crew" data-price-50="5.50" data-price-250="4.80" data-price-1000="4.50">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-image="images/heavyweight.jpg">
       <div class="product-img">
         <span class="product-tag">Premium</span>
         <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#2a2a2a" stroke="#1a1a1a" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#444" stroke-width="2"/></svg>
@@ -204,14 +116,21 @@
           <div class="price-tier"><span>250–999 units</span><strong>$7.20 / unit</strong></div>
           <div class="price-tier"><span>1,000+ units</span><strong>$6.80 / unit</strong></div>
         </div>
-        <div class="actions">
-          <a href="contact.html?product=heavyweight" class="req">Request Quote</a>
-          <a href="contact.html?product=heavyweight&sample=1" class="sample">Get Sample</a>
+        <div class="add-to-cart-form">
+          <div class="atc-row">
+            <div class="atc-field"><label>Size</label><select data-field="size"><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+            <div class="atc-field"><label>Color</label><select data-field="color"><option selected>Black</option><option>Cream</option><option>Forest</option><option>Charcoal</option></select></div>
+          </div>
+          <div class="atc-row">
+            <div class="atc-field"><label>Quantity (min 50)</label><input type="number" min="50" step="50" value="50" data-field="quantity" /></div>
+            <div class="atc-field" style="display:flex;align-items:flex-end;"><span style="font-family:var(--serif);font-size:18px;color:var(--ink);" data-display="price">$8.00/unit</span></div>
+          </div>
+          <button class="atc-add-btn" data-product="heavyweight" data-name="The Heavyweight" data-price-50="8.00" data-price-250="7.20" data-price-1000="6.80">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-image="images/custom.jpg">
       <div class="product-img">
         <span class="product-tag">Custom</span>
         <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#8b1e1e" stroke="#5e1414" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#5e1414" stroke-width="2"/><g transform="translate(100, 130)" fill="#faf8f3"><path d="M -12 6 L -12 -1 L -5 4 L 0 -4 L 5 4 L 12 -1 L 12 6 Z"/><line x1="-14" y1="6" x2="14" y2="6" stroke="#faf8f3" stroke-width="1.5"/><text x="0" y="22" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600">T</text></g></svg>
@@ -224,20 +143,23 @@
           <div class="price-tier"><span>250–999 units</span><strong>$5.90 / unit</strong></div>
           <div class="price-tier"><span>1,000+ units</span><strong>$5.50 / unit</strong></div>
         </div>
-        <div class="actions">
-          <a href="contact.html?product=custom" class="req">Request Quote</a>
-          <a href="contact.html?product=custom&sample=1" class="sample">Get Sample</a>
+        <div class="add-to-cart-form">
+          <div class="atc-row">
+            <div class="atc-field"><label>Size</label><select data-field="size"><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option></select></div>
+            <div class="atc-field"><label>Base Color</label><select data-field="color"><option>White</option><option selected>Black</option><option>Maroon</option><option>Navy</option><option>Custom</option></select></div>
+          </div>
+          <div class="atc-row">
+            <div class="atc-field"><label>Quantity (min 50)</label><input type="number" min="50" step="50" value="50" data-field="quantity" /></div>
+            <div class="atc-field" style="display:flex;align-items:flex-end;"><span style="font-family:var(--serif);font-size:18px;color:var(--ink);" data-display="price">$6.50/unit</span></div>
+          </div>
+          <button class="atc-add-btn" data-product="custom" data-name="Custom Branded" data-price-50="6.50" data-price-250="5.90" data-price-1000="5.50">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-image="images/polo.jpg">
       <div class="product-img">
-        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 50 40 L 80 30 Q 100 25 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#3a4d3a" stroke="#1a1a1a" stroke-width="2"/>
-          <path d="M 85 30 L 90 70 L 100 65 L 110 70 L 115 30" fill="#faf8f3" stroke="#1a1a1a" stroke-width="1.5"/>
-          <line x1="100" y1="40" x2="100" y2="55" stroke="#1a1a1a" stroke-width="1"/>
-        </svg>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 25 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#3a4d3a" stroke="#1a1a1a" stroke-width="2"/><path d="M 85 30 L 90 70 L 100 65 L 110 70 L 115 30" fill="#faf8f3" stroke="#1a1a1a" stroke-width="1.5"/><line x1="100" y1="40" x2="100" y2="55" stroke="#1a1a1a" stroke-width="1"/></svg>
       </div>
       <div class="product-info">
         <h3>The Polo</h3>
@@ -247,20 +169,23 @@
           <div class="price-tier"><span>250–999 units</span><strong>$8.40 / unit</strong></div>
           <div class="price-tier"><span>1,000+ units</span><strong>$7.80 / unit</strong></div>
         </div>
-        <div class="actions">
-          <a href="contact.html?product=polo" class="req">Request Quote</a>
-          <a href="contact.html?product=polo&sample=1" class="sample">Get Sample</a>
+        <div class="add-to-cart-form">
+          <div class="atc-row">
+            <div class="atc-field"><label>Size</label><select data-field="size"><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option></select></div>
+            <div class="atc-field"><label>Color</label><select data-field="color"><option>White</option><option>Black</option><option selected>Forest</option><option>Navy</option><option>Burgundy</option></select></div>
+          </div>
+          <div class="atc-row">
+            <div class="atc-field"><label>Quantity (min 50)</label><input type="number" min="50" step="50" value="50" data-field="quantity" /></div>
+            <div class="atc-field" style="display:flex;align-items:flex-end;"><span style="font-family:var(--serif);font-size:18px;color:var(--ink);" data-display="price">$9.50/unit</span></div>
+          </div>
+          <button class="atc-add-btn" data-product="polo" data-name="The Polo" data-price-50="9.50" data-price-250="8.40" data-price-1000="7.80">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-image="images/longsleeve.jpg">
       <div class="product-img">
-        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#4a5d7e" stroke="#1a1a1a" stroke-width="2"/>
-          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-          <line x1="55" y1="155" x2="145" y2="155" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
-        </svg>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#4a5d7e" stroke="#1a1a1a" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/><line x1="55" y1="155" x2="145" y2="155" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/></svg>
       </div>
       <div class="product-info">
         <h3>The Long Sleeve</h3>
@@ -270,21 +195,24 @@
           <div class="price-tier"><span>250–999 units</span><strong>$6.40 / unit</strong></div>
           <div class="price-tier"><span>1,000+ units</span><strong>$5.90 / unit</strong></div>
         </div>
-        <div class="actions">
-          <a href="contact.html?product=longsleeve" class="req">Request Quote</a>
-          <a href="contact.html?product=longsleeve&sample=1" class="sample">Get Sample</a>
+        <div class="add-to-cart-form">
+          <div class="atc-row">
+            <div class="atc-field"><label>Size</label><select data-field="size"><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+            <div class="atc-field"><label>Color</label><select data-field="color"><option>White</option><option>Black</option><option selected>Slate Blue</option><option>Heather</option></select></div>
+          </div>
+          <div class="atc-row">
+            <div class="atc-field"><label>Quantity (min 50)</label><input type="number" min="50" step="50" value="50" data-field="quantity" /></div>
+            <div class="atc-field" style="display:flex;align-items:flex-end;"><span style="font-family:var(--serif);font-size:18px;color:var(--ink);" data-display="price">$7.20/unit</span></div>
+          </div>
+          <button class="atc-add-btn" data-product="longsleeve" data-name="The Long Sleeve" data-price-50="7.20" data-price-250="6.40" data-price-1000="5.90">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-image="images/linen.jpg">
       <div class="product-img">
         <span class="product-tag">New</span>
-        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#d4c5a9" stroke="#1a1a1a" stroke-width="2"/>
-          <path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-          <path d="M 55 90 L 145 90" stroke="#1a1a1a" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,3"/>
-        </svg>
+        <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><path d="M 50 40 L 80 30 Q 100 20 120 30 L 150 40 L 175 70 L 160 100 L 145 90 L 145 220 L 55 220 L 55 90 L 40 100 L 25 70 Z" fill="#d4c5a9" stroke="#1a1a1a" stroke-width="2"/><path d="M 80 30 Q 100 50 120 30" fill="none" stroke="#1a1a1a" stroke-width="2"/><path d="M 55 90 L 145 90" stroke="#1a1a1a" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,3"/></svg>
       </div>
       <div class="product-info">
         <h3>Eco Linen Blend</h3>
@@ -294,9 +222,16 @@
           <div class="price-tier"><span>250–999 units</span><strong>$9.80 / unit</strong></div>
           <div class="price-tier"><span>1,000+ units</span><strong>$9.20 / unit</strong></div>
         </div>
-        <div class="actions">
-          <a href="contact.html?product=linen" class="req">Request Quote</a>
-          <a href="contact.html?product=linen&sample=1" class="sample">Get Sample</a>
+        <div class="add-to-cart-form">
+          <div class="atc-row">
+            <div class="atc-field"><label>Size</label><select data-field="size"><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+            <div class="atc-field"><label>Color</label><select data-field="color"><option selected>Sand</option><option>Stone</option><option>Olive</option><option>Terracotta</option><option>Cream</option></select></div>
+          </div>
+          <div class="atc-row">
+            <div class="atc-field"><label>Quantity (min 50)</label><input type="number" min="50" step="50" value="50" data-field="quantity" /></div>
+            <div class="atc-field" style="display:flex;align-items:flex-end;"><span style="font-family:var(--serif);font-size:18px;color:var(--ink);" data-display="price">$11.00/unit</span></div>
+          </div>
+          <button class="atc-add-btn" data-product="linen" data-name="Eco Linen Blend" data-price-50="11.00" data-price-250="9.80" data-price-1000="9.20">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -333,6 +268,100 @@
     <span>Crafted in India · Delivered from the USA</span>
   </div>
 </footer>
+
+<!-- ========== CART DRAWER ========== -->
+<div class="cart-overlay" id="cartOverlay" onclick="window.tsarCart.close()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="window.tsarCart.close()">&times;</button>
+  </div>
+  <div class="cart-body">
+    <div id="cartEmpty" class="cart-empty">
+      <p>Your cart is empty.</p>
+      <button class="btn-secondary" onclick="window.tsarCart.close()">Continue Browsing</button>
+    </div>
+    <div id="cartItems"></div>
+  </div>
+  <div id="cartSummary" class="cart-summary" style="display:none;">
+    <div class="cart-total-row"><span>Items</span><span id="cartTotalCount">0 units</span></div>
+    <div class="cart-total-row grand"><span>Estimated total</span><strong id="cartTotalAmount">$0.00</strong></div>
+    <a href="checkout.html" class="cart-checkout-btn">Proceed to Checkout</a>
+    <button class="cart-clear-btn" onclick="if(confirm('Clear cart?')) window.tsarCart.clear()">Clear cart</button>
+    <p class="cart-note">No payment required at this stage. Your cart is sent as a quote request — we respond with final delivered pricing within 1 business day.</p>
+  </div>
+</aside>
+
+<script src="cart.js"></script>
+<script>
+  // Try to load real product photos. If a photo exists, replace the SVG.
+  // If no photo (404), the SVG placeholder stays in place.
+  document.querySelectorAll('.product-card[data-image]').forEach(card => {
+    const imgPath = card.dataset.image;
+    const imgDiv = card.querySelector('.product-img');
+    const testImg = new Image();
+    testImg.onload = function() {
+      // Photo exists - replace SVG with real image
+      const svg = imgDiv.querySelector('svg');
+      if (svg) svg.remove();
+      const realImg = document.createElement('img');
+      realImg.src = imgPath;
+      realImg.alt = card.querySelector('h3').textContent;
+      imgDiv.appendChild(realImg);
+    };
+    testImg.src = imgPath;
+    // If onload never fires (404), nothing happens - SVG stays. Perfect.
+  });
+</script>
+<script>
+  document.querySelectorAll('.product-card').forEach(card => {
+    const qtyInput = card.querySelector('input[data-field="quantity"]');
+    const priceDisplay = card.querySelector('[data-display="price"]');
+    const addBtn = card.querySelector('.atc-add-btn');
+    if (!qtyInput || !priceDisplay || !addBtn) return;
+
+    function getCurrentPrice() {
+      const qty = parseInt(qtyInput.value) || 50;
+      if (qty >= 1000) return parseFloat(addBtn.dataset.price1000);
+      if (qty >= 250) return parseFloat(addBtn.dataset.price250);
+      return parseFloat(addBtn.dataset.price50);
+    }
+
+    function updatePriceDisplay() {
+      priceDisplay.textContent = '$' + getCurrentPrice().toFixed(2) + '/unit';
+    }
+
+    qtyInput.addEventListener('input', updatePriceDisplay);
+
+    addBtn.addEventListener('click', function() {
+      const qty = parseInt(qtyInput.value);
+      if (!qty || qty < 50) {
+        alert('Minimum order quantity is 50 units.');
+        qtyInput.value = 50;
+        updatePriceDisplay();
+        return;
+      }
+      const size = card.querySelector('select[data-field="size"]').value;
+      const color = card.querySelector('select[data-field="color"]').value;
+      const svgEl = card.querySelector('.product-img svg');
+
+      window.tsarCart.add({
+        id: addBtn.dataset.product,
+        name: addBtn.dataset.name,
+        size: size, color: color, quantity: qty,
+        price: getCurrentPrice(),
+        svg: svgEl ? svgEl.outerHTML : ''
+      });
+
+      addBtn.textContent = '✓ Added to Cart';
+      addBtn.classList.add('atc-confirm');
+      setTimeout(() => {
+        addBtn.textContent = 'Add to Cart';
+        addBtn.classList.remove('atc-confirm');
+      }, 1500);
+    });
+  });
+</script>
 
 </body>
 </html>
